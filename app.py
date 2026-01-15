@@ -1,5 +1,5 @@
 STATE = dict(position=(0, 0), direction="north", normal_mode=True)
-PATH = []
+PATH = [(0, 0)]
 
 
 def update_path(state: dict):
