@@ -14,7 +14,6 @@ def update_mode(state: dict):
     is_visited = pos in PATH
     if is_visited:
         is_normal = not is_normal
-
     state.update({"normal_mode": is_normal})
     return state
 
@@ -80,7 +79,7 @@ def change_dir(state: dict, direction: str):
 
 def input_as_list(input: str | list):
     return [inp for inp in input]
-    
+
 
 def main():
     state = STATE
@@ -90,8 +89,8 @@ def main():
     for command in input:
         if command.upper() == "F":
             state = update_pos(state)
-            PATH = update_path(state)
             state = update_mode(state)
+            PATH = update_path(state)
         elif command.upper() in ["R", "L"]:
             state = change_dir(state, command.upper())
     print(PATH)
