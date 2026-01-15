@@ -66,13 +66,20 @@ def change_dir(state: dict, direction: str):
     if is_normal:
         if direction == "R":
             dir = turn_right(dir)
+            PATH.append("R")
+
         elif direction == "L":
             dir = turn_left(dir)
+            PATH.append("L")
+
     else:
         if direction == "R":
             dir = turn_left(dir)
+            PATH.append("L")
+
         elif direction == "L":
             dir = turn_right(dir)
+            PATH.append('R')
     state.update({"direction": dir})
     return state
 
@@ -93,7 +100,12 @@ def main():
             PATH = update_path(state)
         elif command.upper() in ["R", "L"]:
             state = change_dir(state, command.upper())
-    print(PATH)
+    for i in PATH:
+        if i in ['R', 'L']:
+            print('')
+            print(i)
+        else:
+            print(i,end='')
 
 
 if __name__ == "__main__":
